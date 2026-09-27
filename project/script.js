@@ -93,7 +93,7 @@ randomButton.addEventListener("click", () => {
 // Этап 5. Реализуйте полный сброс интерфейса.
 const resetButton = document.querySelector("#reset-button");
 
-resetButton.addEventListener("click", () => {
+function resetInterface() {
   filterButtons.forEach((button) => {
     const active = button.dataset.filter === "all";
     button.classList.toggle("filter-button--active", active);
@@ -109,7 +109,40 @@ resetButton.addEventListener("click", () => {
   detailsTitle.textContent = initialTitle;
   detailsDescription.textContent = initialDescription;
   visibleCount.textContent = cards.length;
-});
+}
+
+resetButton.addEventListener("click", resetInterface);
 
 // Этап 6. Запускайте подготовленную CSS-анимацию через класс.
 // Не дублируйте оформление в script.js.
+
+// Бонус. Дополнительное управление с клавиатуры.
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    resetInterface();
+    return;
+  }
+
+  if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+  const visibleCards = [...cards].filter(
+    (card) => !card.classList.contains("collection-card--hidden"),
+  );
+
+  if (!visibleCards.length) return;
+
+  event.preventDefault();
+
+  const selectedCard = document.querySelector(".collection-card--selected");
+  let index = visibleCards.indexOf(selectedCard);
+
+  if (index === -1) {
+    index = event.key === "ArrowRight" ? 0 : visibleCards.length - 1;
+  } else {
+    const step = event.key === "ArrowRight" ? 1 : -1;
+    index = (index + step + visibleCards.length) % visibleCards.length;
+  }
+
+  selectCard(visibleCards[index]);
+  visibleCards[index].focus();
+});
