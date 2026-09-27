@@ -13,6 +13,18 @@ const detailsTitle = document.querySelector("#details-title");
 const detailsDescription = document.querySelector("#details-description");
 const initialTitle = detailsTitle.textContent;
 const initialDescription = detailsDescription.textContent;
+const historyList = document.querySelector("#selection-history");
+let recentCards = [];
+
+function renderHistory() {
+  historyList.replaceChildren(
+    ...recentCards.map((card) => {
+      const item = document.createElement("li");
+      item.textContent = card.dataset.title;
+      return item;
+    }),
+  );
+}
 
 function selectCard(card) {
   cards.forEach((item) => {
@@ -24,6 +36,9 @@ function selectCard(card) {
   card.setAttribute("aria-pressed", "true");
   detailsTitle.textContent = card.dataset.title;
   detailsDescription.textContent = card.dataset.description;
+
+  recentCards = [card, ...recentCards.filter((item) => item !== card)].slice(0, 3);
+  renderHistory();
 
   detailsPanel.classList.remove("details-panel--pulse");
   void detailsPanel.offsetWidth;
@@ -109,6 +124,8 @@ function resetInterface() {
   detailsTitle.textContent = initialTitle;
   detailsDescription.textContent = initialDescription;
   visibleCount.textContent = cards.length;
+  recentCards = [];
+  renderHistory();
 }
 
 resetButton.addEventListener("click", resetInterface);

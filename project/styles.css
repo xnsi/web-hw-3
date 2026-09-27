@@ -339,6 +339,7 @@ a:focus-visible {
 
 .details-panel__top,
 .details-panel__content,
+.selection-history,
 .details-panel__actions {
   position: relative;
   z-index: 1;
@@ -393,6 +394,25 @@ a:focus-visible {
   color: rgb(255 255 255 / 74%);
   font-size: 1rem;
   line-height: 1.65;
+}
+
+.selection-history {
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 6%);
+}
+
+.selection-history ol {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  color: rgb(255 255 255 / 74%);
+  font-size: 0.85rem;
+}
+
+.selection-history ol:empty::before {
+  content: "Пока нет выборов";
 }
 
 .details-panel__actions {
