@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Интерактивная коллекция инструментов разработчика: редакторы, анализ кода, автоматизация, отладка и контейнеризация."
+    />
+    <title>Инструменты разработчика — интерактивная коллекция</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#collection" aria-label="К началу коллекции">
+        <span class="brand__index">INDEX</span>
+        <span class="brand__count">/ 09</span>
+      </a>
+
+      <p class="site-header__course">Developer tooling · workflow · debugging</p>
+      <p class="site-header__status"><span aria-hidden="true"></span> Интерактивная коллекция</p>
+    </header>
+
+    <main class="page" id="collection">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="intro__eyebrow">Инструменты разработчика</p>
+        <h1 id="page-title">Девять инструментов<br />в <em>developer toolchain</em></h1>
+        <p class="intro__lead">
+          Коллекция инструментов для написания и анализа кода, контроля версий,
+          автоматизации, запуска и диагностики программ.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Интерактивная коллекция">
+        <div class="catalog">
+          <div class="toolbar">
+            <div class="filters" aria-label="Фильтр коллекции">
+              <button
+                class="filter-button filter-button--active"
+                type="button"
+                data-filter="all"
+                aria-pressed="true"
+              >
+                Все
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="code"
+                aria-pressed="false"
+              >
+                Работа с кодом
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="workflow"
+                aria-pressed="false"
+              >
+                Версионирование и автоматизация
+              </button>
+              <button
+                class="filter-button"
+                type="button"
+                data-filter="runtime"
+                aria-pressed="false"
+              >
+                Запуск и диагностика
+              </button>
+            </div>
+
+            <p class="result-count" aria-live="polite">
+              Показано карточек: <strong id="visible-count">9</strong>
+            </p>
+          </div>
+
+          <div class="collection-grid">
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Visual Studio Code"
+              data-description="Visual Studio Code — редактор исходного кода от Microsoft. Он поддерживает расширения, встроенный терминал, отладку и интеграцию с системами контроля версий."
+              data-category="code"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>01</span><span>Editor</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">VS</span>
+              <span class="collection-card__title">VS Code</span>
+              <span class="collection-card__summary">Редактор исходного кода</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="clangd"
+              data-description="clangd — language server для C и C++. Он анализирует исходный код и передаёт редактору автодополнение, диагностику, навигацию по символам и информацию о типах через Language Server Protocol."
+              data-category="code"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>02</span><span>Language Server</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">LSP</span>
+              <span class="collection-card__title">clangd</span>
+              <span class="collection-card__summary">Анализ C и C++ для редактора</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Prettier"
+              data-description="Prettier — автоматический форматтер исходного кода. Он приводит код к единому стилю по заданным правилам и уменьшает количество ручных правок форматирования в проекте."
+              data-category="code"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>03</span><span>Formatter</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">{ }</span>
+              <span class="collection-card__title">Prettier</span>
+              <span class="collection-card__summary">Автоматическое форматирование кода</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Git"
+              data-description="Git — распределённая система контроля версий. Она хранит историю изменений проекта, позволяет работать с ветками, объединять изменения и возвращаться к предыдущим состояниям кода."
+              data-category="workflow"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>04</span><span>VCS</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">Git</span>
+              <span class="collection-card__title">Git</span>
+              <span class="collection-card__summary">Контроль версий и история изменений</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="CMake"
+              data-description="CMake — система конфигурации сборки. Она описывает структуру проекта и генерирует файлы для разных систем сборки, позволяя собирать один проект на разных платформах."
+              data-category="workflow"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>05</span><span>Build System</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">CM</span>
+              <span class="collection-card__title">CMake</span>
+              <span class="collection-card__summary">Конфигурация и организация сборки</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="GitHub Actions"
+              data-description="GitHub Actions — система автоматизации рабочих процессов в GitHub. Она запускает сборку, тесты, проверки качества и развёртывание в ответ на события репозитория."
+              data-category="workflow"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>06</span><span>CI/CD</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">CI</span>
+              <span class="collection-card__title">GitHub Actions</span>
+              <span class="collection-card__summary">Автоматизация сборки и проверок</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Docker"
+              data-description="Docker — платформа для сборки и запуска приложений в контейнерах. Контейнер объединяет приложение и его зависимости в изолированное и воспроизводимое окружение."
+              data-category="runtime"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>07</span><span>Containerization</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">DK</span>
+              <span class="collection-card__title">Docker</span>
+              <span class="collection-card__summary">Изолированный запуск приложений</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="GDB"
+              data-description="GDB — отладчик для программ, в том числе написанных на C и C++. Он позволяет ставить точки останова, выполнять код пошагово и исследовать переменные, память и стек вызовов."
+              data-category="runtime"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>08</span><span>Debugger</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">DBG</span>
+              <span class="collection-card__title">GDB</span>
+              <span class="collection-card__summary">Пошаговая отладка программ</span>
+            </button>
+
+            <button
+              class="collection-card"
+              type="button"
+              data-title="Valgrind"
+              data-description="Valgrind — набор инструментов динамического анализа программ. Его часто используют для поиска утечек памяти, некорректных обращений к памяти и других ошибок времени выполнения."
+              data-category="runtime"
+              aria-controls="details-panel"
+              aria-pressed="false"
+            >
+              <span class="collection-card__meta">
+                <span>09</span><span>Dynamic Analysis</span>
+              </span>
+              <span class="collection-card__symbol" aria-hidden="true">VAL</span>
+              <span class="collection-card__title">Valgrind</span>
+              <span class="collection-card__summary">Динамический анализ памяти</span>
+            </button>
+          </div>
+        </div>
+
+        <aside
+          class="details-panel"
+          id="details-panel"
+          aria-labelledby="details-title"
+          aria-live="polite"
+        >
+          <div class="details-panel__top">
+            <span class="details-panel__label">Выбранный инструмент</span>
+            <span class="details-panel__marker" aria-hidden="true"></span>
+          </div>
+
+          <div class="details-panel__content">
+            <p class="details-panel__number" aria-hidden="true">TOOL / 01</p>
+            <h2 id="details-title">Выберите инструмент</h2>
+            <p id="details-description">
+              Нажмите на карточку, чтобы увидеть назначение выбранного инструмента.
+            </p>
+          </div>
+
+          <div class="selection-history">
+            <span class="details-panel__label">Последние выборы</span>
+            <ol id="selection-history"></ol>
+          </div>
+
+          <div class="details-panel__actions">
+            <button class="action-button action-button--primary" id="random-button" type="button">
+              Случайный выбор <span aria-hidden="true">↗</span>
+            </button>
+            <button class="action-button" id="reset-button" type="button">Сбросить</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="assignment-note" aria-labelledby="assignment-title">
+        <p class="assignment-note__index">TOOLCHAIN / 09</p>
+        <div>
+          <h2 id="assignment-title">От исходного кода до запуска и диагностики.</h2>
+          <p>
+            Редакторы и анализаторы помогают работать с кодом, VCS и CI/CD организуют
+            процесс разработки, а контейнеры и отладчики помогают запускать и исследовать программы.
+          </p>
+          <p><strong>Клавиатура:</strong> ← / → — выбор карточки, Esc — полный сброс.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>НИУ ВШЭ · Разработка web-интерфейсов</p>
+      <a href="#collection">Наверх ↑</a>
+    </footer>
+  </body>
+</html>
