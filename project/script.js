@@ -91,6 +91,25 @@ randomButton.addEventListener("click", () => {
 });
 
 // Этап 5. Реализуйте полный сброс интерфейса.
+const resetButton = document.querySelector("#reset-button");
+
+resetButton.addEventListener("click", () => {
+  filterButtons.forEach((button) => {
+    const active = button.dataset.filter === "all";
+    button.classList.toggle("filter-button--active", active);
+    button.setAttribute("aria-pressed", active);
+  });
+
+  cards.forEach((card) => {
+    card.classList.remove("collection-card--hidden", "collection-card--selected");
+    card.setAttribute("aria-pressed", "false");
+  });
+
+  detailsPanel.classList.remove("details-panel--pulse");
+  detailsTitle.textContent = initialTitle;
+  detailsDescription.textContent = initialDescription;
+  visibleCount.textContent = cards.length;
+});
 
 // Этап 6. Запускайте подготовленную CSS-анимацию через класс.
 // Не дублируйте оформление в script.js.
