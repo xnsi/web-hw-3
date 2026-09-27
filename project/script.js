@@ -74,6 +74,21 @@ filterButtons.forEach((button) => {
 });
 
 // Этап 4. Реализуйте случайный выбор среди видимых карточек.
+const randomButton = document.querySelector("#random-button");
+
+randomButton.addEventListener("click", () => {
+  const selectedCard = document.querySelector(".collection-card--selected");
+  let visibleCards = [...cards].filter(
+    (card) => !card.classList.contains("collection-card--hidden"),
+  );
+
+  if (visibleCards.length > 1) {
+    visibleCards = visibleCards.filter((card) => card !== selectedCard);
+  }
+
+  const randomCard = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+  selectCard(randomCard);
+});
 
 // Этап 5. Реализуйте полный сброс интерфейса.
 
